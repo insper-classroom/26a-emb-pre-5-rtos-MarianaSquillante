@@ -10,14 +10,14 @@ const int BTN_PIN_Y = 21;
 const int LED_PIN_R = 5;
 const int LED_PIN_Y = 10;
 
-// Recursos do RTOS
+
 QueueHandle_t xQueueBtn;
 SemaphoreHandle_t xSemaphoreLedR;
 SemaphoreHandle_t xSemaphoreLedY;
 
-// Callback de interrupção
+
 void btn_callback(uint gpio, uint32_t events) {
-    int btn_id = 0;
+    int btn_id;
     if (events == GPIO_IRQ_EDGE_FALL) {
         if (gpio == BTN_PIN_R) {
             btn_id = 1; 
